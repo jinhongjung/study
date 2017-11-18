@@ -2,7 +2,7 @@
 
 import numpy as np
 
-def sigmod(x):
+def sigmoid(x):
     return 1 / (1 + np.exp(-x))
 
 def relu(x):
@@ -36,9 +36,9 @@ def forward(network, x):
     b1, b2, b3 = network['b1'], network['b2'], network['b3']
 
     a1 = np.dot(x, W1) + b1
-    z1 = sigmod(a1)
+    z1 = sigmoid(a1)
     a2 = np.dot(z1, W2) + b2
-    z2 = sigmod(a2)
+    z2 = sigmoid(a2)
     a3 = np.dot(z2, W3) + b3
     y = identity_function(a3)
 
